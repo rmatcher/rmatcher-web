@@ -1,0 +1,12 @@
+
+To check what ports are being listen on
+netstat -ntl
+
+Redirecting port 8080 to 80:
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+
+verify the rediection
+sudo iptables -t nat -L
+
+remove the routing
+sudo iptables -t nat -D PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
