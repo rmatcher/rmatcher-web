@@ -18,12 +18,14 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(ModelMap model) {
+        System.out.println("home page requested");
         return "home";
     }
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public String homeWithName(@PathVariable String name, ModelMap model) {
         model.addAttribute("name", "Hello " + name);
+        System.out.println("home page requested with name " + name);
         return "home";
     }
 }
